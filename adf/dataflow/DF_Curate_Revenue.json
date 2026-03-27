@@ -1,0 +1,66 @@
+{
+	"name": "DF_Curate_Revenue",
+	"properties": {
+		"description": "This handles:\n- Missing Region → \"Unknown\"\n- Negative Quantity → removed\n- Invalid emails → removed\n- Zero quantity → removed\n- Casts dates + numeric types\n",
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_Revenue_Raw",
+						"type": "DatasetReference"
+					},
+					"name": "RawRevenue"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_Revenue_Curated",
+						"type": "DatasetReference"
+					},
+					"name": "CuratedRevenue"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Derived"
+				},
+				{
+					"name": "FilterBadRows"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          CustomerID as string,",
+				"          OrderID as string,",
+				"          Region as string,",
+				"          Product as string,",
+				"          Quantity as string,",
+				"          UnitPrice as string,",
+				"          OrderDate as string,",
+				"          LastModifiedDate as string,",
+				"          Email as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> RawRevenue",
+				"RawRevenue derive(Region = iif(isNull(Region) || Region == '', 'Unknown', Region),",
+				"          Quantity = toInteger(Quantity),",
+				"          UnitPrice = toDecimal(UnitPrice, 10, 2),",
+				"          OrderDate = toDate(OrderDate),",
+				"          LastModifiedDate = toDate(LastModifiedDate),",
+				"          EmailValid = regexMatch(Email, '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-Za-Z]{2,}$')) ~> Derived",
+				"Derived filter(Quantity > 0 && !isNull(EmailValid)) ~> FilterBadRows",
+				"FilterBadRows sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> CuratedRevenue"
+			]
+		}
+	}
+}
