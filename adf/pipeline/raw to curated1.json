@@ -159,7 +159,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "rawrevenuedata1",
+						"referenceName": "revenuedata",
 						"type": "DatasetReference"
 					}
 				],
