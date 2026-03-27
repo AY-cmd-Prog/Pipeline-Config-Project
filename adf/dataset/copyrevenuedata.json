@@ -1,5 +1,5 @@
 {
-	"name": "revenuedata",
+	"name": "copyrevenuedata",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
