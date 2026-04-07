@@ -1,0 +1,15 @@
+{
+	"name": "Photo_json1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "RestAPI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "/photos"
+		},
+		"schema": []
+	}
+}
