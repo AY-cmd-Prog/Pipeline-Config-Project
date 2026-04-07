@@ -1,0 +1,16 @@
+{
+	"name": "Restcovid1",
+	"properties": {
+		"description": "/v1/states/daily.json",
+		"linkedServiceName": {
+			"referenceName": "RestAPI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "/v1/states/daily.json"
+		},
+		"schema": []
+	}
+}
