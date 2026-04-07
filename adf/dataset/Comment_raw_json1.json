@@ -1,0 +1,19 @@
+{
+	"name": "Comment_raw_json1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "comment.json",
+				"fileSystem": "raw"
+			}
+		},
+		"schema": {}
+	}
+}
