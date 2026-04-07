@@ -1,10 +1,11 @@
 {
 	"name": "RestAPI",
 	"properties": {
+		"description": "https://jsonplaceholder.typicode.com",
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://jsonplaceholder.typicode.com",
+			"url": "https://api.covidtracking.com",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
