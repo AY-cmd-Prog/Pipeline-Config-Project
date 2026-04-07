@@ -12,7 +12,7 @@
 			"value": "https://dataengineeringda3.dfs.core.windows.net/"
 		},
 		"RestAPI_properties_typeProperties_url": {
-			"value": "https://jsonplaceholder.typicode.com"
+			"value": "https://api.covidtracking.com"
 		},
 		"containerUri": {
 			"value": ""

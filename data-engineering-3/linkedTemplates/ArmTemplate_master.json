@@ -17,7 +17,7 @@
 		},
 		"RestAPI_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://jsonplaceholder.typicode.com"
+			"defaultValue": "https://api.covidtracking.com"
 		},
 		"containerUri": {
 			"type": "string",
