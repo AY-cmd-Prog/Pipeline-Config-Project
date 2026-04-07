@@ -1,7 +1,7 @@
 {
 	"name": "RestAPI",
 	"properties": {
-		"description": "https://jsonplaceholder.typicode.com",
+		"description": "https://jsonplaceholder.typicode.com       for post and comments\nhttps://api.covidtracking.com/v1/states/daily.json      for covid",
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
