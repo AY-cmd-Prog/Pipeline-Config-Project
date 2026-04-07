@@ -15,6 +15,10 @@
 			"type": "string",
 			"defaultValue": "https://dataengineeringda3.dfs.core.windows.net/"
 		},
+		"RestAPI_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://jsonplaceholder.typicode.com"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -47,6 +51,9 @@
 					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"RestAPI_properties_typeProperties_url": {
+						"value": "[parameters('RestAPI_properties_typeProperties_url')]"
 					}
 				}
 			},
